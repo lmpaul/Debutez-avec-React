@@ -2,6 +2,7 @@ import React from 'react'
 import { plantList } from '../datas/plantList'
 import PlantItem from './PlantItem'
 import '../styles/ShoppingList.css'
+import cover from '../assets/monstera.jpg'
 
 
 function ShoppingList() {
@@ -20,9 +21,7 @@ function ShoppingList() {
 			</ul>
 			<ul className='lmj-plant-list'>
 				{plantList.map((plant) => (
-          <ul>
-            <PlantItem name={plant.name} cover={plant.cover} id={plant.id} light={plant.light} water={plant.water} />
-          </ul>
+            <PlantItem name={plant.name} cover={cover} id={plant.id} light={plant.light} water={plant.water} />
 				))}
 			</ul>
 		</div>
