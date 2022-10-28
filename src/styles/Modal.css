@@ -1,0 +1,23 @@
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-modal-content {
+  background-color: white;
+  width: 30%;
+  height: 30%;
+  z-index: 1001;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+
+}
