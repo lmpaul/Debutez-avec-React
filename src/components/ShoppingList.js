@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { plantList } from '../datas/plantList'
 import PlantItem from './PlantItem'
 import Categories from './Categories'
@@ -11,6 +11,16 @@ function ShoppingList({ cart, updateCart }) {
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
 		[]
 	)
+
+  // au premier chargement de la page, récupérer Cart
+  useEffect(() => {
+    updateCart(JSON.parse(localStorage.getItem("cart")));
+  }, [])
+
+  // dès que Cart change, l'enregistrer en LocalStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  })
 
 	function addToCart(name, price) {
 		const currentPlantAdded = cart.find((plant) => plant.name === name)
