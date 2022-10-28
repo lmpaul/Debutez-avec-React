@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/Cart.css'
 
 function Cart({ cart, updateCart }) {
@@ -8,6 +8,9 @@ function Cart({ cart, updateCart }) {
 		0
 	)
 
+  useEffect(() => {
+    document.title = `LMJ - : ${total}€ d'achats`
+  }, [total])
   function removePlant(name, price, amount, index){
     cart[index] = {name, price, amount: amount -1}
     updateCart(cart.filter((plant) => plant.amount > 0));

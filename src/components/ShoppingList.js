@@ -2,7 +2,7 @@ import { plantList } from '../datas/plantList'
 import PlantItem from './PlantItem'
 import '../styles/ShoppingList.css'
 import Categories from './Categories'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function ShoppingList({ cart, updateCart }) {
 	const categories = plantList.reduce(
@@ -12,6 +12,12 @@ function ShoppingList({ cart, updateCart }) {
 	)
 
   const [selectedCategory, updateSelectedCategory] = useState("");
+
+  useEffect(() => {
+    if (selectedCategory !== "") {
+      alert(`Catégorie choisie : ${selectedCategory}`)
+    }
+  }, [selectedCategory])
 
 	function addToCart(name, price) {
 		const currentPlantSaved = cart.find((plant) => plant.name === name)
